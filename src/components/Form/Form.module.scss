@@ -1,0 +1,58 @@
+@use "../../scss/variables.scss" as v;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  justify-content: center;
+  align-items: center;
+  background-color: v.$form-bg;
+  padding: 1.5em 1em 1em 1em;
+  border-radius: 8px;
+  border: 2px solid v.$form-border;
+  color: v.$font-color;
+}
+
+.searchContainer {
+  display: flex;
+  gap: 0.5em;
+}
+
+.btn {
+  font-size: 0.85em;
+  border: 1px solid v.$btn-border;
+  color: v.$font-color;
+
+  &:active {
+    transform: scale(1);
+  }
+}
+
+.header {
+  font-size: 16px;
+  margin: 0;
+  align-self: flex-start;
+  padding-bottom: 0.5em;
+}
+
+.searchField {
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  padding: 0.5em;
+  font-size: 0.85em;
+  background-color: v.$input-bg;
+  border: 1px solid v.$btn-border;
+}
+
+.error {
+  display: block;
+  color: red;
+  opacity: 0.85;
+  font-size: 0.8em;
+  align-self: flex-start;
+}
+
+small {
+  height: 1em;
+}

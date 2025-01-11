@@ -14,13 +14,16 @@ const defaultBookValues = {
 
 const AppContainer = () => {
   const [bookData, setBookData] = useState(defaultBookValues);
+  const [error, setError] = useState("");
 
   const onFormSubmit = async (data) => {
     try {
       const books = await fetchApi(data);
       setBookData(books);
+      console.log(books);
     } catch (error) {
       console.error("error fetching books:", error);
+      setError(error);
     }
   };
 
@@ -28,7 +31,7 @@ const AppContainer = () => {
     <div className={classes.container}>
       <Header />
       <Form onSubmit={onFormSubmit} />
-      <Books bookData={bookData} />
+      <Books bookData={bookData} error={error} />
     </div>
   );
 };
