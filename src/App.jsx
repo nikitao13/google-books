@@ -1,4 +1,3 @@
-import "./App.css";
 import AppContainer from "./containers/AppContainer/AppContainer.jsx";
 
 const App = () => {

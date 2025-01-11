@@ -1,21 +1,10 @@
 import classes from "./Form.module.scss";
 import { useState } from "react";
 
-const defaultFormValues = {
-  image: "",
-  author: "",
-  title: "",
-  description: ""
-}
+const Form = ({ onSubmit }) => {
+  const [formState, setFormState] = useState(null);
 
-const Form = () => {
-  const [formState, setFormState] = useState(defaultFormValues);
-
-  return (
-    <form className={classes.form}>
-
-    </form>
-  )
+  return <form className={classes.form} onSubmit={onSubmit}></form>;
 };
 
-export default Form
+export default Form;
