@@ -10,10 +10,16 @@ const fetchApi = async (searchTerm) => {
   const data = await response.json();
 
   return data.items.map((item) => ({
-    image: item.volumeInfo.imageLinks,
-    author: item.volumeInfo.authors.join(", "),
+    image: item.volumeInfo.imageLinks
+      ? item.volumeInfo.imageLinks
+      : "No image provided",
+    author: item.volumeInfo.authors
+      ? item.volumeInfo.authors.join(", ")
+      : "Unknown Author",
     title: item.volumeInfo.title,
-    description: item.volumeInfo.description,
+    description: item.volumeInfo.description
+      ? item.volumeInfo.description
+      : "No description",
   }));
 };
 

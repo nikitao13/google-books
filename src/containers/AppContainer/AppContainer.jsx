@@ -5,15 +5,8 @@ import Form from "../../components/Form/Form.jsx";
 import Books from "../../components/Books/Books.jsx";
 import fetchApi from "../../services/api.js";
 
-const defaultBookValues = {
-  image: "",
-  author: "",
-  title: "",
-  description: "",
-};
-
 const AppContainer = () => {
-  const [bookData, setBookData] = useState(defaultBookValues);
+  const [bookData, setBookData] = useState([]);
   const [error, setError] = useState("");
 
   const onFormSubmit = async (data) => {

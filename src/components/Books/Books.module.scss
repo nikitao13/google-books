@@ -1,1 +1,39 @@
 @use "../../scss/variables.scss" as v;
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5em;
+  padding: 1em;
+
+  & p {
+    margin: 0;
+  }
+}
+
+.book {
+  border: 2px solid v.$form-bg;
+  background-color: v.$input-bg;
+  border-radius: 8px;
+  padding: 0.5em 1em;
+  transition: all ease-in-out 0.2s;
+  font-size: 0.9em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+    background-color: v.$root-bg;
+    transform: scale(1.05);
+    border: 2px solid v.$btn-border;
+  }
+
+  &:active {
+    transform: scale(1);
+  }
+}
