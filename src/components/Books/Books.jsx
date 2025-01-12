@@ -21,7 +21,7 @@ const Books = ({ bookData, error }) => {
       {bookData.map((book, index) => {
         return (
           <div key={index} className={classes.book}>
-            {/* <img alt="book image" src={book.image.smallThumbnail} /> */}
+            <img alt="book image" src={book.image.smallThumbnail} />
             {handleTitleLength(book)}
             <p className={classes.author}>
               {book.author.length > 1

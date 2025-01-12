@@ -7,19 +7,13 @@ const fetchApi = async (searchTerm) => {
   if (!response.ok) {
     throw new Error("error fetching books.");
   }
-  const data = await response.json();
+  const { items } = await response.json();
 
-  return data.items.map((item) => ({
-    image: item.volumeInfo.imageLinks
-      ? item.volumeInfo.imageLinks
-      : "No image provided",
-    author: item.volumeInfo.authors
-      ? item.volumeInfo.authors
-      : ["Unknown Author"],
-    title: item.volumeInfo.title,
-    description: item.volumeInfo.description
-      ? item.volumeInfo.description
-      : "No description available",
+  return items.map(({ volumeInfo }) => ({
+    image: volumeInfo.imageLinks ?? "No image provided",
+    author: volumeInfo.authors ?? ["Unknown Author"],
+    title: volumeInfo.title ?? "No title",
+    description: volumeInfo.description ?? "No description available",
   }));
 };
 
