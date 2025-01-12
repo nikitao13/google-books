@@ -8,6 +8,7 @@
   align-items: center;
   margin-top: 0.5em;
   padding: 1em;
+  width: 70%;
 
   & p {
     margin: 0;
@@ -18,13 +19,19 @@
   border: 2px solid v.$form-bg;
   background-color: v.$input-bg;
   border-radius: 8px;
-  padding: 0.5em 1em;
+  padding: 0.3em 0.6em;
   transition: all ease-in-out 0.2s;
   font-size: 0.9em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  width: 200px;
+  min-height: 100px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+  gap: 0.4em;
 
   &:hover {
     cursor: pointer;
@@ -36,4 +43,12 @@
   &:active {
     transform: scale(1);
   }
+}
+
+.title {
+  font-weight: 600;
+}
+
+.author {
+  font-size: 0.9em;
 }

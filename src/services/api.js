@@ -14,12 +14,12 @@ const fetchApi = async (searchTerm) => {
       ? item.volumeInfo.imageLinks
       : "No image provided",
     author: item.volumeInfo.authors
-      ? item.volumeInfo.authors.join(", ")
-      : "Unknown Author",
+      ? item.volumeInfo.authors
+      : ["Unknown Author"],
     title: item.volumeInfo.title,
     description: item.volumeInfo.description
       ? item.volumeInfo.description
-      : "No description",
+      : "No description available",
   }));
 };
 

@@ -12,9 +12,9 @@ const validateForm = (formData) => {
     error = "search must have at least 3 characters."
   }
   
-  if(formData.length > 20) {
+  if(formData.length > 30) {
     isValid = false;
-    error = "search must be less than 20 characters."
+    error = "search must be less than 30 characters."
   }
 
   return { isValid, error };

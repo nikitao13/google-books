@@ -9,12 +9,25 @@ const Books = ({ bookData, error }) => {
     return;
   }
 
+  const handleTitleLength = (book) => {
+    if (book.title.length > 70) {
+      return <p className={classes.title}>{book.title.slice(0, 67) + "..."}</p>;
+    }
+    return <p className={classes.title}>{book.title}</p>;
+  };
+
   return (
     <div className={classes.container}>
       {bookData.map((book, index) => {
         return (
           <div key={index} className={classes.book}>
-            <p>{book.title}</p>
+            {/* <img alt="book image" src={book.image.smallThumbnail} /> */}
+            {handleTitleLength(book)}
+            <p className={classes.author}>
+              {book.author.length > 1
+                ? book.author[0] + " et al."
+                : book.author[0]}
+            </p>
           </div>
         );
       })}
