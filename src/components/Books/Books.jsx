@@ -1,10 +1,6 @@
 import classes from "./Books.module.scss";
 
-const Books = ({ bookData, error }) => {
-  if (error) {
-    return <p>an error occured: {error}</p>;
-  }
-
+const Books = ({ bookData }) => {
   if (!bookData || bookData.length === 0) {
     return;
   }

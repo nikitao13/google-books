@@ -1,4 +1,7 @@
-const API_KEY = import.meta.env.VITE_API_KEY;
+import dotenv from "dotenv";
+dotenv.config();
+
+const API_KEY = process.env.API_KEY;
 
 const fetchApi = async (searchTerm) => {
   const url = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${API_KEY}`;
@@ -7,6 +10,7 @@ const fetchApi = async (searchTerm) => {
   if (!response.ok) {
     throw new Error("error fetching books.");
   }
+  
   const { items } = await response.json();
 
   return items.map(({ volumeInfo }) => ({

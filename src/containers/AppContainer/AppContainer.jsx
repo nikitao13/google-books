@@ -3,20 +3,31 @@ import { useState } from "react";
 import Header from "../../components/Header/Header.jsx";
 import Form from "../../components/Form/Form.jsx";
 import Books from "../../components/Books/Books.jsx";
-import fetchApi from "../../services/api.js";
 
 const AppContainer = () => {
   const [bookData, setBookData] = useState([]);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const onFormSubmit = async (data) => {
+    setIsLoading(true);
     try {
-      const books = await fetchApi(data);
+      const response = await fetch(`http://localhost:3000/api?search=${data}`, {
+        method: "GET",
+      });
+
+      if (!response.ok) {
+        throw new Error("error fetching books from API");
+      }
+
+      const books = await response.json();
       setBookData(books);
-      console.log(books);
+      setError("");
     } catch (error) {
       console.error("error fetching books:", error);
-      setError(error);
+      setError("error fetching books. please try again");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -24,7 +35,8 @@ const AppContainer = () => {
     <div className={classes.container}>
       <Header />
       <Form onSubmit={onFormSubmit} />
-      <Books bookData={bookData} error={error} />
+      {error && <p className={classes.error}>{error}</p>}
+      {isLoading ? <p>loading...</p> : <Books bookData={bookData} />}
     </div>
   );
 };
