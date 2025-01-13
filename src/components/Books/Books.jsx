@@ -6,8 +6,8 @@ const Books = ({ bookData }) => {
   }
 
   const handleTitleLength = (book) => {
-    if (book.title.length > 70) {
-      return <p className={classes.title}>{book.title.slice(0, 67) + "..."}</p>;
+    if (book.title.length > 60) {
+      return <p className={classes.title}>{book.title.slice(0, 57) + "..."}</p>;
     }
     return <p className={classes.title}>{book.title}</p>;
   };
@@ -17,7 +17,14 @@ const Books = ({ bookData }) => {
       {bookData.map((book, index) => {
         return (
           <div key={index} className={classes.book}>
-            <img alt="book image" src={book.image.smallThumbnail} />
+            <img
+              alt="book image"
+              src={
+                book.image === "No image"
+                  ? "https://placehold.co/120x155"
+                  : book.image.smallThumbnail
+              }
+            />
             {handleTitleLength(book)}
             <p className={classes.author}>
               {book.author.length > 1
