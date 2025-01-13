@@ -3,6 +3,7 @@ import { useState } from "react";
 import Header from "../../components/Header/Header.jsx";
 import Form from "../../components/Form/Form.jsx";
 import Books from "../../components/Books/Books.jsx";
+import Footer from "../../components/Footer/Footer.jsx";
 import BeatLoader from "react-spinners/BeatLoader";
 
 const AppContainer = () => {
@@ -47,6 +48,7 @@ const AppContainer = () => {
       ) : (
         <Books bookData={bookData} />
       )}
+      <Footer />
     </div>
   );
 };

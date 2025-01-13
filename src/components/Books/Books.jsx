@@ -18,7 +18,8 @@ const Books = ({ bookData }) => {
         return (
           <div key={index} className={classes.book}>
             <img
-              alt="book image"
+              alt={book.title}
+              loading="lazy"
               src={
                 book.image === "No image"
                   ? "https://placehold.co/120x155"
