@@ -1,6 +1,7 @@
 import classes from "./Form.module.scss";
 import { useState } from "react";
 import validateForm from "../../services/validator.js";
+import { GiSpellBook } from "react-icons/gi";
 
 const Form = ({ onSubmit }) => {
   const [formState, setFormState] = useState("");
@@ -20,7 +21,11 @@ const Form = ({ onSubmit }) => {
 
   return (
     <form className={classes.form} onSubmit={handleForm}>
-      <h1 className={classes.header}>google-books api</h1>
+      <div className={classes.header}>
+        <h1 className={classes.text}>google-books api</h1>
+        <GiSpellBook />
+      </div>
+
       <div className={classes.searchContainer}>
         <input
           id="query"

@@ -42,7 +42,7 @@ const AppContainer = () => {
         <BeatLoader
           className={classes.loader}
           loading={isLoading}
-          color="#57C4DC"
+          color="#646cff"
           size={15}
         />
       ) : (
