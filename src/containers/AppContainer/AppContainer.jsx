@@ -3,6 +3,7 @@ import { useState } from "react";
 import Header from "../../components/Header/Header.jsx";
 import Form from "../../components/Form/Form.jsx";
 import Books from "../../components/Books/Books.jsx";
+import BeatLoader from "react-spinners/BeatLoader";
 
 const AppContainer = () => {
   const [bookData, setBookData] = useState([]);
@@ -36,7 +37,16 @@ const AppContainer = () => {
       <Header />
       <Form onSubmit={onFormSubmit} />
       {error && <p className={classes.error}>{error}</p>}
-      {isLoading ? <p>loading...</p> : <Books bookData={bookData} />}
+      {isLoading ? (
+        <BeatLoader
+          className={classes.loader}
+          loading={isLoading}
+          color="#57C4DC"
+          size={15}
+        />
+      ) : (
+        <Books bookData={bookData} />
+      )}
     </div>
   );
 };
