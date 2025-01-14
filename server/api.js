@@ -24,7 +24,9 @@ const fetchApi = async (searchTerm) => {
     image: volumeInfo.imageLinks ?? "No image",
     author: volumeInfo.authors ?? ["Unknown Author"],
     title: volumeInfo.title ?? "No title",
+    subtitle: volumeInfo.subtitle ?? "No subtitle",
     description: volumeInfo.description ?? "No description available",
+    publisher: volumeInfo.publisher ?? "No publisher"
   }));
 };
 

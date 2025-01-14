@@ -25,6 +25,8 @@
   border: 2px solid v.$form-border;
   color: v.$font-color;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+  line-height: 1.5;
+  overflow-y: auto;
 
   & p {
     margin: 0;
@@ -39,7 +41,6 @@
   align-items: center;
   border-bottom: 2px solid v.$form-border;
   padding: 0.25em 0.5em 0.25em 0.5em;
-  font-weight: 500;
 }
 
 .headerTitle {
@@ -62,7 +63,42 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
   font-size: 12px;
   padding: 1em;
+  gap: 1em;
+
+  & h5 {
+    margin: 0;
+    font-size: 12px;
+  }
+}
+
+img {
+  height: 155px;
+  width: 120px;
+  border-radius: 8px;
+}
+
+.logo {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  gap: 0.2em;
+  opacity: 0.85;
+
+  & h5 {
+    margin: 0;
+  }
+}
+
+.icon {
+  font-size: 12px;
+}
+
+.bookTitle {
+  color: #646cff;
+}
+
+.subtitle {
+  font-size: 11px;
 }

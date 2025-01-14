@@ -23,11 +23,13 @@ const Books = ({ bookData }) => {
 
   const closeModal = () => {
     setSelectedBook(null);
-  }
+  };
 
   return (
     <>
-      {selectedBook && <BookModal selectedBook={selectedBook} closeModal={closeModal} />}
+      {selectedBook && (
+        <BookModal selectedBook={selectedBook} closeModal={closeModal} />
+      )}
 
       <div className={classes.container}>
         {bookData.map((book, index) => {
@@ -38,6 +40,7 @@ const Books = ({ bookData }) => {
               onClick={() => handleBookClick(book)}
             >
               <img
+                className={classes.img}
                 alt={book.title}
                 loading="lazy"
                 src={
