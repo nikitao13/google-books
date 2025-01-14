@@ -1,6 +1,10 @@
+import BookModal from "../BookModal/BookModal";
 import classes from "./Books.module.scss";
+import { useState } from "react";
 
 const Books = ({ bookData }) => {
+  const [selectedBook, setSelectedBook] = useState(null);
+
   if (!bookData || bookData.length === 0) {
     return;
   }
@@ -12,30 +16,47 @@ const Books = ({ bookData }) => {
     return <p className={classes.title}>{book.title}</p>;
   };
 
+  const handleBookClick = (book) => {
+    console.log(book);
+    setSelectedBook(book);
+  };
+
+  const closeModal = () => {
+    setSelectedBook(null);
+  }
+
   return (
-    <div className={classes.container}>
-      {bookData.map((book, index) => {
-        return (
-          <div key={index} className={classes.book}>
-            <img
-              alt={book.title}
-              loading="lazy"
-              src={
-                book.image === "No image"
-                  ? "https://placehold.co/120x155"
-                  : book.image.smallThumbnail
-              }
-            />
-            {handleTitleLength(book)}
-            <p className={classes.author}>
-              {book.author.length > 1
-                ? book.author[0] + " et al."
-                : book.author[0]}
-            </p>
-          </div>
-        );
-      })}
-    </div>
+    <>
+      {selectedBook && <BookModal selectedBook={selectedBook} closeModal={closeModal} />}
+
+      <div className={classes.container}>
+        {bookData.map((book, index) => {
+          return (
+            <div
+              key={index}
+              className={classes.book}
+              onClick={() => handleBookClick(book)}
+            >
+              <img
+                alt={book.title}
+                loading="lazy"
+                src={
+                  book.image === "No image"
+                    ? "https://placehold.co/120x155"
+                    : book.image.smallThumbnail
+                }
+              />
+              {handleTitleLength(book)}
+              <p className={classes.author}>
+                {book.author.length > 1
+                  ? book.author[0] + " et al."
+                  : book.author[0]}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 };
 
