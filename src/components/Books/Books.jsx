@@ -17,7 +17,6 @@ const Books = ({ bookData }) => {
   };
 
   const handleBookClick = (book) => {
-    console.log(book);
     setSelectedBook(book);
   };
 

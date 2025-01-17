@@ -9,7 +9,6 @@ const Form = ({ onSubmit }) => {
   const handleForm = (e) => {
     e.preventDefault();
     onSubmit(formState);
-    console.log(formState);
     setFormState("");
   };
 
