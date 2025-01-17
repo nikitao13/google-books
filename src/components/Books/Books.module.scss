@@ -1,4 +1,5 @@
 @use "../../scss/variables.scss" as v;
+@use "../../scss/mixins.scss";
 
 .container {
   display: flex;
@@ -12,6 +13,10 @@
 
   & p {
     margin: 0;
+  }
+
+  @include mixins.mobile {
+    gap: 1.5em;
   }
 }
 
@@ -43,6 +48,13 @@
   &:active {
     transform: scale(1);
   }
+
+  @include mixins.mobile {
+    width: 95%;
+    font-size: 1em;
+    padding: 1.75em;
+    gap: 0.5em;
+  }
 }
 
 .title {
@@ -58,4 +70,9 @@
   width: 120px;
   border-radius: 8px;
   margin-bottom: 0.5em;
+
+  @include mixins.mobile {
+    width: 70%;
+    height: 90%;
+  }
 }
