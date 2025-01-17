@@ -46,7 +46,7 @@ const Books = ({ bookData }) => {
                 src={
                   book.image === "No image"
                     ? "https://placehold.co/120x155"
-                    : book.image.smallThumbnail
+                    : book.image.thumbnail
                 }
               />
               {handleTitleLength(book)}

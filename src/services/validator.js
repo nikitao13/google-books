@@ -7,9 +7,9 @@ const validateForm = (formData) => {
     error = null;
   }
 
-  if(formData.length < 3 && formData.length !== 0) {
+  if(formData.length < 2 && formData.length !== 0) {
     isValid = false;
-    error = "search must have at least 3 characters."
+    error = "search must have at least 2 characters."
   }
   
   if(formData.length > 30) {
