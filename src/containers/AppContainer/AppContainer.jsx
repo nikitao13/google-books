@@ -1,5 +1,5 @@
 import classes from "./AppContainer.module.scss";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Header from "../../components/Header/Header.jsx";
 import Form from "../../components/Form/Form.jsx";
 import Books from "../../components/Books/Books.jsx";
@@ -11,7 +11,12 @@ const AppContainer = () => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const prevQueryRef = useRef(null);
+
   const onFormSubmit = async (data) => {
+    if (data === prevQueryRef.current) return;
+    prevQueryRef.current = data;
+
     setIsLoading(true);
     try {
       const response = await fetch(`http://localhost:3000/api?search=${data}`, {
