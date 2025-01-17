@@ -14,7 +14,7 @@ const AppContainer = () => {
   const prevQueryRef = useRef(null);
 
   const onFormSubmit = async (data) => {
-    if (data === prevQueryRef.current) return;
+    if (data.toLowerCase() === prevQueryRef.current.toLowerCase()) return;
     prevQueryRef.current = data;
 
     setIsLoading(true);
